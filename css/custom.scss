@@ -1,0 +1,108 @@
+// Mixins
+@mixin hide($seconds) {
+  animation: letter_hide 0.5s forwards;
+  animation-delay: $seconds;
+}
+
+@mixin show($seconds) {
+  opacity: 0;
+  animation: letter_show 0.5s forwards;
+  animation-delay: $seconds;
+}
+
+/* this is where all of your CSS styles go */
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.word {
+  transform: translate(-50%, -50%);
+  font-family: 'Lora', serif;
+  position: absolute;
+  font-size: 3em;
+  margin: auto;
+  width: 240px;
+  left: 50%;
+  top: 50%;
+}
+
+.word div {
+  float: left;
+}
+
+.placeholder {
+  opacity: 0;
+}
+
+// Letters
+.d {
+  position: absolute;
+  //animation: d_move 4s cubic-bezier(0.25, 0.1, 0.09, 1);
+  animation: d_move 4s cubic-bezier(0.42, 0, 0.27, 0.99);
+  animation-delay: 1s;
+}
+.de {
+  @include hide(0.9s);
+}
+.dev {
+   @include hide(1.1s);
+ }
+.deve {
+  @include hide(1.3s);
+}
+.devel {
+  @include hide(1.4s);
+}
+.develo {
+  @include hide(1.5s);
+}
+.develop {
+  @include hide(1.55s);
+}
+.develope {
+  @include hide(1.6s);
+}
+.developer {
+  @include hide(1.7s);
+}
+
+.designer {
+  @include show(3.6s);
+}
+.designe {
+  @include show(3.7s);
+}
+.design {
+  @include show(3.8s);
+}
+.desig {
+  @include show(3.9s);
+}
+.desi {
+  @include show(4.1s);
+}
+.des {
+  @include show(4.3s);
+}
+.design_e {
+  @include show(4.6s);
+}
+
+
+@keyframes d_move {
+  0%      { left: 0; }
+  50%     { left: 100%; }
+  100%    { left: 0; }
+}
+
+@keyframes letter_hide {
+  0%      { opacity: 1; }
+  100%      { opacity: 0; }
+}
+
+@keyframes letter_show {
+  0%      { opacity: 0; }
+  100%      { opacity: 1; }
+}
